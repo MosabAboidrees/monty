@@ -1,5 +1,15 @@
 #include "monty.h"
-
+/**
+ * print_top - a function that prints the top of the stack.
+ * @stack: a pointer to the top elemets of the stack.
+ * @line_number: opcode represenation.
+ */
+void print_top(stack_t **stack, unsigned int line_number)
+{
+	if (stack == NULL || *stack == NULL)
+		more_err(6, line_n)number;
+	printf("%d\n", (*stack)->n);
+}
 /**
  * print_all_stack_elements - Prints all the values in the stack.
  * @stack: Pointer to a pointer to the top node of the stack.
@@ -125,6 +135,7 @@ int line_number, int storage_format)
 	instruction_t func_list[] = {
 		{"push", PushToStack},
 		{"pall", print_all_stack_elements},
+		{"pop", pop_top},
 		{NULL, NULL}
 	};
 	/*Skip processing if the line is a comment*/

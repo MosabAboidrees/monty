@@ -52,7 +52,7 @@ void OpenFile(char *file_path);
 int ParseInput(char *buffer, int line_number, int format);
 void ReadsInstructions(FILE *);
 void FindAndExecute(char *, char *, int, int);
-
+void print_top(stack_t **stack, unsigned int line_number);
 void CallFunction(op_func, char *, char *, int, int);
 
 
