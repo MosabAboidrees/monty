@@ -7,7 +7,7 @@
 void print_top(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL || *stack == NULL)
-		more_err(6, line_n)number;
+		more_err(6, line_number);
 	printf("%d\n", (*stack)->n);
 }
 /**
@@ -135,7 +135,7 @@ int line_number, int storage_format)
 	instruction_t func_list[] = {
 		{"push", PushToStack},
 		{"pall", print_all_stack_elements},
-		{"pop", pop_top},
+		{"pop", print_top},
 		{NULL, NULL}
 	};
 	/*Skip processing if the line is a comment*/
