@@ -7,18 +7,18 @@
  */
 void OpenFile(char *file_path)
 {
-	FILE *file_descriptor = fopen(file_path, "r")
+	FILE *file_descriptor = fopen(file_path, "r");
 		/*Check if the file path is null or file could not be opened*/
 		if (file_path == NULL || file_descriptor == NULL)
 		{
-			fprintf(stderr, "Error: Can't open file %s\n", file_path)
-			FreeNodes()
-			exit(EXIT_FAILURE)
+			fprintf(stderr, "Error: Can't open file %s\n", file_path);
+			FreeNodes();
+			exit(EXIT_FAILURE);
 		}
 	/*Read the file*/
-	ReadsInstructions(file_descriptor)
+	ReadsInstructions(file_descriptor);
 	/*Close the file after reading*/
-	fclose(file_descriptor)
+	fclose(file_descriptor);
 }
 /**
  * ReadsInstructions - Reads instructions from a file.
@@ -35,9 +35,9 @@ void ReadsInstructions(FILE *filed)
 	/*Iterate through each line in the file*/
 	for (line_number = 1; getline(&buffer, &blen, filed) != -1; line_number++)
 	{
-		storage_format = ParseInput(buffer, line_number, storage_format)
+		storage_format = ParseInput(buffer, line_number, storage_format);
 	}
-	free(buffer)
+	free(buffer);
 }
 /**
  * ParseInput - Parses a single line of input.
@@ -57,15 +57,15 @@ int ParseInput(char *line_buffer, int line_number, int storage_format)
 
 	if (line_buffer == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n")
+		fprintf(stderr, "Error: malloc failed\n");
 		FreeNodes();
-		exit(EXIT_FAILURE)
+		exit(EXIT_FAILURE);
 	}
-	opcode = strtok(line_buffer, delimiter)
+	opcode = strtok(line_buffer, delimiter);
 	/*If line is empty or comment, skip processing*/
 	if (opcode == NULL || opcode[0] == '#')
 		return (storage_format);
-	argument_value = strtok(NULL, delimiter)
+	argument_value = strtok(NULL, delimiter);
 	/*Check if the opcode is 'stack' or 'queue' and update the format*/
 	if (strcmp(opcode, "stack") == 0)
 		return (0); /*Stack format*/
@@ -104,16 +104,16 @@ int line_number, int storage_format)
 		{
 			CallFunction(func_list[i].f, opcode,
 argument_value, line_number, storage_format);
-			is_opcode_found = 0
+			is_opcode_found = 0;
 			break;
 		}
 	}
 	/*If no matching opcode is found, raise an error*/
 	if (is_opcode_found)
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode)
-		FreeNodes()
-		exit(EXIT_FAILURE)
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+		FreeNodes();
+		exit(EXIT_FAILURE);
 	}
 }
 /**
@@ -132,39 +132,39 @@ int line_number, int storage_format)
 	int sign_flag;
 	int i;
 
-	sign_flag = 1
+	sign_flag = 1;
 	if (strcmp(opcode, "push") == 0)
 	{
 		/*Check for negative numbers*/
 		if (value != NULL && value[0] == '-')
 		{
-			value = value + 1
-			sign_flag = -1
+			value = value + 1;
+			sign_flag = -1;
 		}
 		/*Validate the value for push opcode*/
 		if (value == NULL)
 		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number)
-			FreeNodes()
-			exit(EXIT_FAILURE)
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			FreeNodes();
+			exit(EXIT_FAILURE);
 		}
 		for (i = 0; value[i] != '\0'; i++)
 		{
 			if (isdigit(value[i]) == 0)
 			{
-				fprintf(stderr, "L%d: usage: push integer\n", line_number)
-				FreeNodes()
-				exit(EXIT_FAILURE)
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
+				FreeNodes();
+				exit(EXIT_FAILURE);
 			}
 		}
 		/*Create a new node with the given value*/
-		new_node = CreateNode(atoi(value) * sign_flag)
+		new_node = CreateNode(atoi(value) * sign_flag);
 		/*Add the node to the stack or queue based on the current format*/
 		if (storage_format == 0) /*Stack format*/
-			func(&new_node, line_number)
+			func(&new_node, line_number);
 		if (storage_format == 1) /*Queue format*/
-			AddToQueue(&new_node, line_number)
+			AddToQueue(&new_node, line_number);
 	}
 	else
-		func(&head, line_number)
+		func(&head, line_number);
 }
