@@ -31,7 +31,7 @@ void ReadsInstructions(FILE *filed)
 	int storage_format = 0; /* 0 for stack, 1 for queue*/
 	char *buffer = NULL;
 	size_t blen = 0;
-	
+
 	/*Iterate through each line in the file*/
 	for (line_number = 1; getline(&buffer, &blen, filed) != -1; line_number++)
 	{
@@ -44,15 +44,17 @@ void ReadsInstructions(FILE *filed)
  * @line_buffer: Buffer containing the line read from the file.
  * @line_number: Current line number being processed.
  * @storage_format: Current storage format (stack or queue).
- * Description: Separates each line into tokens to determine the opcode and its arguments.
- * Return: Returns 0 if opcode is 'stack', 1 if 'queue', otherwise returns current format.
+ * Description: Separates each line into
+ * tokens to determine the opcode and its arguments.
+ * Return: Returns 0 if opcode is 'stack', 1 if 'queue',
+ * otherwise returns current format.
  */
 int ParseInput(char *line_buffer, int line_number, int storage_format)
 {
 	char *opcode;
 	char *argument_value;
 	const char *delimiter = "\n ";
-	
+
 	if (line_buffer == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n")
@@ -73,18 +75,20 @@ int ParseInput(char *line_buffer, int line_number, int storage_format)
 	return (storage_format);
 }
 /**
- * FindAndExecute - Finds and executes the appropriate function for a given opcode.
+ * FindAndExecute - Finds and executes the appropriate
+ * function for a given opcode.
  * @opcode: Opcode read from the file.
  * @argument_value: Argument value associated with the opcode, if any.
  * @line_number: Line number of the opcode in the file.
  * @storage_format: Current storage format (stack or queue).
  * Description: Matches the opcode to the correct function and calls it.
  */
-void FindAndExecute(char *opcode, char *argument_value, int line_number, int storage_format)
+void FindAndExecute(char *opcode, char *argument_value,
+int line_number, int storage_format)
 {
 	int i;
 	int is_opcode_found;
-	
+
 	/*List of supported opcodes and their corresponding functions*/
 	instruction_t func_list[] = {
 		{"push", PushToStack},
@@ -98,7 +102,8 @@ void FindAndExecute(char *opcode, char *argument_value, int line_number, int sto
 	{
 		if (strcmp(opcode, func_list[i].opcode) == 0)
 		{
-			CallFunction(func_list[i].f, opcode, argument_value, line_number, storage_format);
+			CallFunction(func_list[i].f, opcode,
+argument_value, line_number, storage_format);
 			is_opcode_found = 0
 			break;
 		}
@@ -120,12 +125,13 @@ void FindAndExecute(char *opcode, char *argument_value, int line_number, int sto
  * @storage_format: Current storage format (stack or queue).
  * Description: Validates the arguments and calls the respective function.
  */
-void CallFunction(op_func func, char *opcode, char *value, int line_number, int storage_format)
+void CallFunction(op_func func, char *opcode, char *value,
+int line_number, int storage_format)
 {
 	stack_t *new_node;
 	int sign_flag;
 	int i;
-	
+
 	sign_flag = 1
 	if (strcmp(opcode, "push") == 0)
 	{
