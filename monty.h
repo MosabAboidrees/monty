@@ -62,5 +62,7 @@ void Nop(stack_t **stack, unsigned int line_number);
 void Sub_Top_Two_Stack_Elements(stack_t **stack, unsigned int line_number);
 void Div_Top_Two_Stack_Elements(stack_t **stack, unsigned int line_number);
 void Mul_Top_Two_Stack_Elements(stack_t **stack, unsigned int line_number);
+void Mod_Top_Two_Stack_Elements(stack_t **stack, unsigned int line_number);
+
 
 #endif /* MONTY_H */

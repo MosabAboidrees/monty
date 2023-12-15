@@ -101,6 +101,7 @@ int line_number, int storage_format)
 		{"sub", Sub_Top_Two_Stack_Elements},
 		{"div", Div_Top_Two_Stack_Elements},
 		{"mul", Mul_Top_Two_Stack_Elements},
+		{"mod", Mod_Top_Two_Stack_Elements},
 		{NULL, NULL}
 	};
 	/*Skip processing if the line is a comment*/
