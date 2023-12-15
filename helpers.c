@@ -98,6 +98,7 @@ int line_number, int storage_format)
 		{"swap", Swap_Top_Two_Stack_Elements},
 		{"add", Add_Top_Two_Element},
 		{"nop", Nop},
+		{"sub", Sub_Top_Two_Stack_Elements},
 		{NULL, NULL}
 	};
 	/*Skip processing if the line is a comment*/
