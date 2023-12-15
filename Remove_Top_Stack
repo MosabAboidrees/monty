@@ -19,6 +19,5 @@ void Remove_Top_Stack(stack_t **stack, unsigned int line_number)
 	*stack = (*stack)->next; /*Make the next node as the top node*/
 	if (*stack != NULL) /*If the stack is not empty*/
 		(*stack)->prev = NULL;
-		
 	free(temp); /*Free the old top node*/
 }

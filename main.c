@@ -1,6 +1,4 @@
 #include "monty.h"
-
-/*Global variable for the head of the stack*/
 stack_t *head = NULL;
 
 /**
