@@ -94,6 +94,8 @@ int line_number, int storage_format)
 		{"push", PushToStack},
 		{"pall", print_all_stack_elements},
 		{"pint",Prints_Top_Stack},
+		{"pop", Remove_Top_Stack},
+
 		{NULL, NULL}
 	};
 	/*Skip processing if the line is a comment*/
