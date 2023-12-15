@@ -97,6 +97,7 @@ int line_number, int storage_format)
 		{"pop", Remove_Top_Stack},
 		{"swap", Swap_Top_Two_Stack_Elements},
 		{"add", Add_Top_Two_Element},
+		{"nop", Nop},
 		{NULL, NULL}
 	};
 	/*Skip processing if the line is a comment*/
