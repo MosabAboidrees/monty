@@ -93,8 +93,9 @@ int line_number, int storage_format)
 	instruction_t func_list[] = {
 		{"push", PushToStack},
 		{"pall", print_all_stack_elements},
-		{"pint",Prints_Top_Stack},
+		{"pint", Prints_Top_Stack},
 		{"pop", Remove_Top_Stack},
+		{"swap", Swap_Top_Two_Stack_Elements},
 		{NULL, NULL}
 	};
 	/*Skip processing if the line is a comment*/
