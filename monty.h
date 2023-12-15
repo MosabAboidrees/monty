@@ -54,8 +54,8 @@ void ReadsInstructions(FILE *);
 void FindAndExecute(char *, char *, int, int);
 void CallFunction(op_func, char *, char *, int, int);
 void print_all_stack_elements(stack_t **, unsigned int);
-void Prints_Top_Stack(stack_t **stack, unsigned int line_number);
+void Prints_Top_Stack(stack_t **stack, unsigned int);
 void Remove_Top_Stack(stack_t **stack, unsigned int);
-void Swap_Top_Two_Stack_Elements(stack_t **stack, unsigned int line_number);
+void Swap_Top_Two_Stack_Elements(stack_t **stack, unsigned int);
 
 #endif /* MONTY_H */

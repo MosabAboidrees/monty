@@ -1,7 +1,8 @@
 #include "monty.h"
 
 /**
- * Prints_Top_Stack - prints the value at the top of the stack, followed by a new line.
+ * Prints_Top_Stack - prints the value at the top of the stack,
+ * followed by a new line.
  * @stack: double pointer to the top of the stack.
  * @line_number: line number in the script where the opcode appears.
  */
