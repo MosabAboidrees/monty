@@ -96,6 +96,7 @@ int line_number, int storage_format)
 		{"pint", Prints_Top_Stack},
 		{"pop", Remove_Top_Stack},
 		{"swap", Swap_Top_Two_Stack_Elements},
+		{"add", Add_Top_Two_Element},
 		{NULL, NULL}
 	};
 	/*Skip processing if the line is a comment*/

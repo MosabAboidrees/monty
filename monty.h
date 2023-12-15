@@ -57,5 +57,6 @@ void print_all_stack_elements(stack_t **, unsigned int);
 void Prints_Top_Stack(stack_t **stack, unsigned int);
 void Remove_Top_Stack(stack_t **stack, unsigned int);
 void Swap_Top_Two_Stack_Elements(stack_t **stack, unsigned int);
+void Add_Top_Two_Element(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
