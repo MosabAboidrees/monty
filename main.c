@@ -61,11 +61,11 @@ void FreeNodes(void)
 	}
 }
 /**
- * Add_Top_Two_Element - Adds a new node to the top of the stack.
+ * AddToQueue - Adds a new node to the top of the stack.
  * @new_node: Pointer to the new node to add.
  * @line_number: The line number of the opcode being processed.
  */
-void Add_Top_Two_Element(stack_t **new_node, __attribute__((unused))
+void AddToQueue(stack_t **new_node, __attribute__((unused))
 		unsigned int line_number)
 {
 	stack_t *temp_node;

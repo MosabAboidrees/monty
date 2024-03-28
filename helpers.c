@@ -173,7 +173,7 @@ int line_number, int storage_format)
 		if (storage_format == 0) /*Stack format*/
 			func(&new_node, line_number);
 		if (storage_format == 1) /*Queue format*/
-			Add_Top_Two_Element(&new_node, line_number);
+			AddToQueue(&new_node, line_number);
 	}
 	else
 		func(&head, line_number);
